@@ -1,0 +1,1 @@
+# lista7_bezp
