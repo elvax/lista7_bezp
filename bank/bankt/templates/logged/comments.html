@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+
+{% block header %}
+  <h1>{% block title %}Comments{% endblock %}</h1>
+
+{% endblock %}
+
+{% block content %}
+  <form name="comment_form" method="post" >
+    <label for="comment">Comment:</label>
+    <input name="comment" id="comment" required>
+
+    <input type="submit" value="submit">
+  </form>
+
+
+  {% if comments %}
+    {% for comment in comments %}
+    <article class="post">
+      <header>
+        <div>
+          <p>{{ comment['comment']|safe }}</p>
+
+        </div>
+      </header>
+    </article>
+    {% if not loop.last %}
+      <hr>
+    {% endif %}
+  {% endfor %}
+  {% else %}
+    <h3>Brak</h3>
+  {% endif %}
+
+{% endblock %}

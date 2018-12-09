@@ -1,0 +1,40 @@
+{% extends 'base.html' %}
+
+{% block header %}
+  <h1>{% block title %}Search by title{% endblock %}</h1>
+{% endblock %}
+
+{% block content %}
+
+  <form name="search_form" method="post" >
+    <label for="title">Title:</label>
+    <input name="title" id="title" required>
+
+    <input type="submit" value="submit">
+  </form>
+
+  {% if query %}
+    <p>{{ query }}</p>
+  {% endif %}
+
+  {% if results %}
+    {% for results in results %}
+    <article class="post">
+      <header>
+        <div>
+          <p>Title: {{ results['title'] }}</p>
+          <p>Account number: {{ results['account_no'] }}</p>
+          <p>Amount: {{ results['amount'] }}</p>
+        </div>
+      </header>
+    </article>
+    {% if not loop.last %}
+      <hr>
+    {% endif %}
+  {% endfor %}
+  {% else %}
+    <h3>Brak</h3>
+  {% endif %}
+
+
+{% endblock %}

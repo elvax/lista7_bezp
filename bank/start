@@ -1,0 +1,12 @@
+python3 -m venv venv
+instaluje wirtualne środowisko
+
+. venv/bin/activate
+aktywuje środowisko
+
+
+export FLASK_APP=bankt
+export FLASK_ENV=development
+flask run
+
+
